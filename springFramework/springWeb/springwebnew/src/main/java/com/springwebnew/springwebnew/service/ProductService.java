@@ -8,7 +8,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
@@ -42,5 +41,9 @@ public class ProductService {
     public String deleteProduct(int pid) {
         productRepository.deleteById(pid);
         return "Product deleted successfully";
+    }
+
+    public List<Product> getSearchProducts(String keyword) {
+        return productRepository.searchProducts(keyword);
     }
 }
