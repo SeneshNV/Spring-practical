@@ -1,10 +1,14 @@
 package com.earts.SpringSecurity.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
 public class HelloController {
-    @RequestMapping("/")
-    public String displayMessage(){
-        return "Hello Senesh";
+    @GetMapping("/")
+    public String displayMessage(HttpServletRequest httpServletRequest){
+        return "Hello Senesh" + httpServletRequest.getSession().getId();
     }
 }
