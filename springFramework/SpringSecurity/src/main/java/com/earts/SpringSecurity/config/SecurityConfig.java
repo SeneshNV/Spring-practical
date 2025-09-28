@@ -59,6 +59,7 @@ public class SecurityConfig {
 
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 /*
+                ensures Spring doesn’t keep track of logged-in users with sessions.
                 What it does: Makes the application stateless - no sessions are created or stored
                 Why: Common for APIs where each request must include authentication credentials
                  */
